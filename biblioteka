@@ -1,0 +1,97 @@
+import uuid
+książka = {
+    "tytuł": "Władca pierścieni",
+    "liczbaStron": 300
+}
+
+# ----------------------------------------
+
+def inf(lst: list) -> None:
+    for dic in lst:
+        for key, value in dic.items():
+            print(f"{key}: {value}")
+        print("---" * 10)
+def edycja(dc):
+    print("wprowadz klucz jaki chcesz edytować")
+    print("==="*25)
+    inf(dc)
+    print("==="*25)
+    inp = input()
+    dc[inp] = input("Podaj nowe dane")
+    
+def edycja_listy(lst):
+    while True:
+        print(lst)
+        print('a - dodaj element')
+        print('u - usun element')
+        print('e - wyjdz z edycji list')
+        inp = input()
+        if 'a' == inp:
+            książka = float(input())
+            lst.append(książka)
+            print('ksiazka dodana')
+        elif 'u' == inp:
+            książka = float(input())
+            lst.remove(książka)
+            print('ksiazka usunieta')
+        elif 'e' == inp:
+            break
+        else:
+            print("Nie ma takiej komendy")
+
+def dodaj_nowe_książki(dc):
+    print("Edytuj książke")
+    print("Władca pierścieni - a")
+    print("place holder1- b")
+    print("place holder2- c")
+    inp = input()
+    if inp == 'a':
+        edycja_listy(dc['Władca pierścieni'])
+    elif inp == 'b':
+        edycja_listy(dc['place holder1'])
+    elif inp == 'c':
+        edycja_listy(dc['place holder2'])
+    print("dodaj_nowe_książki - zakonczylo dzialnie")
+
+
+while True:
+    print("==="*25)
+    print("e - wyjdź z programu")
+    print("i - informacje o książce")
+    
+    print("ed - edytuj dane")
+    print("oc - edytuj licza stron")
+    print("==="*25)
+    inp = input().lower()
+    if 'e' == inp:
+        break
+    
+    elif 'i' == inp:
+        inf(książka)
+    elif 'ed' == inp:
+        edycja(książka)
+    elif 'oc' == inp:
+        dodaj_nowe_książki(książka)
+    else:
+        print("Program zkonczyl dziłanie")
+        break
+
+# ----------------------------------------
+
+biblioteka = [książka, książka, książka, książka, książka, książka, książka, książka]
+
+while True:
+    print("===" * 25)
+    print("i - informacje o książkach")
+    print("e - wyjdź z programu")
+    print("===" * 25)
+
+    inp = input().lower()
+
+    if inp == "i":
+        inf(biblioteka)
+    elif inp == "e":
+        print("Program zakończył działanie")
+        break
+    else:
+        print("Nie ma takiej komendy")
